@@ -10,19 +10,20 @@ import BookPage from './pages/BookPage'
 const router = createBrowserRouter([
 
   {
-    path: "/",
+    path: "/react-router-project",
     element: <HomePage />,
-    errorElement: <NotFoundPage msg="404! This page doesn't exist :("/>
+    errorElement: <NotFoundPage msg="404! This page doesn't exist :("/>,
+    children: [{
+      
+        path: "/books",
+        element: <BookListPage />,
+        children: [{
+          path: "/:bookId",
+          element: <BookPage />
+        }]
+      }
+      ]
   },
-
-  {
-    path: "/books",
-    element: <BookListPage />
-  },
-  {
-    path: "/books/:bookId",
-    element: <BookPage />
-  }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
