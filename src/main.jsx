@@ -17,7 +17,6 @@ const router = createBrowserRouter([
 
   {
     path: "/react-router-project/books",
-    path: "/",
     element: <BookListPage />
   },
   {
