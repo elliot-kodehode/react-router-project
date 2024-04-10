@@ -8,7 +8,7 @@ export default function BookPage () {
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios(`http://gutendex.com/books/${bookId}`)
+            const result = await axios(`${import.meta.env.VITE_SECRET_API}/${bookId}`)
             console.log(result)
             setBookData(result.data)
         }

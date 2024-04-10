@@ -8,11 +8,15 @@ export default function BookListPage () {
     const [error, setError] = useState();
     const [isLoading, setIsLoading] = useState(false);
 
+    // const apiLink = import.meta.env.VITE_SECRET_API;
+    // console.log(apiLink)
+
     useEffect(() => {
         const fetchData = async () => {
             try {
                 setIsLoading(true)
                 const result = await axios(import.meta.env.VITE_SECRET_API);
+                console.log(result)
                 setData(result.data.results);
                 setIsLoading(false)
             } catch (e) {
@@ -21,16 +25,9 @@ export default function BookListPage () {
         };
         fetchData();
     }, []);
-
+    
     if (error) return <NotFoundPage msg={error} />
     if (isLoading) return <h1>Books are loading...</h1>
-
-    const getCoverImage = () => {
-        const Image = data?.formats["image/jpeg"]
-        if (Image) {
-         return Image
-        }
-     }
 
     return (
         <>
@@ -38,7 +35,7 @@ export default function BookListPage () {
            <ul>
            {data?.map((book) => (
             <li key={book.id}>
-               <Link to={`/books/${book.id}`} key={book.id} >
+               <Link to={`/react-router-project/books/${book.id}`} key={book.id} >
                <img src={book.formats["image/jpeg"]} />
                </Link>
             </li>
