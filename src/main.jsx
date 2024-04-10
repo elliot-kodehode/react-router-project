@@ -12,18 +12,17 @@ const router = createBrowserRouter([
   {
     path: "/react-router-project",
     element: <HomePage />,
-    errorElement: <NotFoundPage msg="404! This page doesn't exist :("/>,
-    children: [{
-      
-        path: "/books",
-        element: <BookListPage />,
-        children: [{
-          path: "/:bookId",
-          element: <BookPage />
-        }]
-      }
-      ]
+    errorElement: <NotFoundPage msg="404! This page doesn't exist :("/>
   },
+
+  {
+    path: "/react-router-project/books",
+    element: <BookListPage />
+  },
+  {
+    path: "/react-router-project/books/:bookId",
+    element: <BookPage />
+  }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
