@@ -12,7 +12,7 @@ export default function BookListPage () {
         const fetchData = async () => {
             try {
                 setIsLoading(true)
-                const result = await axios("https://gutendex.com/books/");
+                const result = await axios(import.meta.env.VITE_SECRET_KEY);
                 setData(result.data.results);
                 setIsLoading(false)
             } catch (e) {
