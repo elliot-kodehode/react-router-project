@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
 
-export default function NotFoundPage () {
+export default function NotFoundPage ( { msg }) {
     return <div>
-        <h1>Oh no, 404! Can't find this page!</h1>
+        <h1>{msg}</h1>
         <Link to="/">Take me back to main page!</Link>
     </div>
 }
